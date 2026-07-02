@@ -13,14 +13,14 @@ export function LoginPage() {
 
         <div className="bg-panel border border-border rounded-lg p-6 space-y-3">
           <a
-            href="/api/auth/google"
+            href={`${import.meta.env.VITE_API_URL}/auth/google`}
             className="flex items-center justify-center gap-3 w-full rounded-md border border-border bg-bg py-2.5 text-sm font-medium hover:border-cyan/40 hover:text-cyan transition-colors"
           >
             <GoogleIcon />
             Continue with Google
           </a>
           <a
-            href="/api/auth/github"
+            href={`${import.meta.env.VITE_API_URL}/auth/github`}
             className="flex items-center justify-center gap-3 w-full rounded-md border border-border bg-bg py-2.5 text-sm font-medium hover:border-cyan/40 hover:text-cyan transition-colors"
           >
             <GithubIcon />
@@ -29,8 +29,8 @@ export function LoginPage() {
         </div>
 
         <p className="text-xs text-muted text-center mt-6">
-          Access is invite-only. An admin reviews every request before
-          alerts are enabled.
+          Access is invite-only. An admin reviews every request before alerts
+          are enabled.
         </p>
       </div>
     </div>
