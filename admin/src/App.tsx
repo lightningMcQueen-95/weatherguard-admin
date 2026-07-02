@@ -5,6 +5,7 @@ import { PendingPage } from './pages/PendingPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { UsersPage } from './pages/UsersPage';
 import { LogsPage } from './pages/LogsPage';
+import { AuthCallbackPage } from './pages/AuthCallbackPage';
 
 function Gate({ children, requireAdmin }: { children: React.ReactNode; requireAdmin?: boolean }) {
   const { user, loading } = useAuth();
@@ -68,6 +69,7 @@ function AppRoutes() {
           </Gate>
         }
       />
+      <Route path="/auth/callback" element={<AuthCallbackPage />} />
     </Routes>
   );
 }

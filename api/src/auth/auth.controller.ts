@@ -40,15 +40,8 @@ export class AuthController {
     const profile = req.user as any;
     const user = await this.authService.findOrCreateFromOAuth(profile);
     const token = this.authService.issueJwt(user._id.toString());
-
-    res.cookie('access_token', token, {
-      httpOnly: true,
-      secure: this.config.get('NODE_ENV') === 'production',
-      sameSite: 'none',
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
-
-    return res.redirect(`${this.config.get('ADMIN_URL')}/dashboard`);
+    const adminUrl = this.config.get('ADMIN_URL');
+    return res.redirect(`${adminUrl}/auth/callback?token=${token}`);
   }
 
   @Post('logout')
